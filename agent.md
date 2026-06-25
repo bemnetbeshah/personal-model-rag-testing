@@ -2,7 +2,7 @@
 
 Authoritative project instructions: no project-specific `AGENTS.md` exists yet.
 
-This folder appears to be the start of a LangChain RAG tutorial project using local Ollama models. The project virtual environment lives at `.venv` and uses CPython 3.14.4.
+This folder is a personal model RAG testing project using local Ollama models. The project virtual environment lives at `.venv` and uses CPython 3.14.4.
 
 ```sh
 source .venv/bin/activate

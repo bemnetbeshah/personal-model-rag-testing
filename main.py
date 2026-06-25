@@ -317,7 +317,7 @@ def stream_judge_answers(
 
 
 def main() -> None:
-    print("RAG tutorial project")
+    print("Personal model RAG testing")
     print(f"Paper: {PAPER_PATH.name}")
 
     documents = load_document()

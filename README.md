@@ -1,4 +1,4 @@
-# Local Model RAG Compare Tool
+# Personal Model RAG Testing
 
 This is a personal tool I use to test local model capabilities.
 

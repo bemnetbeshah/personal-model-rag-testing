@@ -390,7 +390,7 @@ class RagRequestHandler(SimpleHTTPRequestHandler):
 
 def main():
     server = ThreadingHTTPServer((HOST, PORT), RagRequestHandler)
-    print(f"RAG UI running at http://{HOST}:{PORT}")
+    print(f"Personal model RAG testing UI running at http://{HOST}:{PORT}")
     print(f"Chat model: {CHAT_MODEL}")
     print(f"Embedding model: {EMBEDDING_MODEL}")
     server.serve_forever()
