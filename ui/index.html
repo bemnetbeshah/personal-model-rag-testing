@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Paper Console</title>
+    <link rel="stylesheet" href="/styles.css?v=stream-3" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="panel">
+        <header class="mast">
+          <div>
+            <p class="kicker">Local RAG console</p>
+            <h1>Data Recipes for Agentic Models</h1>
+          </div>
+          <dl class="status-grid" aria-label="Model status">
+            <div>
+              <dt>Model</dt>
+              <dd id="chat-model">Gemma</dd>
+            </div>
+            <div>
+              <dt>Embeddings</dt>
+              <dd id="embedding-model">Ollama</dd>
+            </div>
+          </dl>
+        </header>
+
+        <form id="question-form" class="query-bar">
+          <div class="compare-strip" aria-label="Model comparison selectors">
+            <fieldset class="model-lane">
+              <legend>Left model</legend>
+              <label for="left-provider">Provider</label>
+              <select id="left-provider" name="left-provider"></select>
+              <label for="left-model">Model</label>
+              <select id="left-model" name="left-model"></select>
+            </fieldset>
+
+            <fieldset class="model-lane">
+              <legend>Right model</legend>
+              <label for="right-provider">Provider</label>
+              <select id="right-provider" name="right-provider"></select>
+              <label for="right-model">Model</label>
+              <select id="right-model" name="right-model"></select>
+            </fieldset>
+          </div>
+
+          <fieldset class="judge-strip">
+            <legend>Judge</legend>
+            <label class="toggle" for="judge-enabled">
+              <input id="judge-enabled" name="judge-enabled" type="checkbox" />
+              <span>Apply judge</span>
+            </label>
+            <label for="judge-provider">Provider</label>
+            <select id="judge-provider" name="judge-provider"></select>
+            <label for="judge-model">Model</label>
+            <select id="judge-model" name="judge-model"></select>
+          </fieldset>
+
+          <label class="question-label" for="question">Question</label>
+          <textarea
+            id="question"
+            name="question"
+            rows="4"
+            autocomplete="off"
+            spellcheck="true"
+            placeholder="Ask what the paper found, compared, limited, or concluded."
+          ></textarea>
+          <button type="submit">
+            <span>Compare</span>
+          </button>
+        </form>
+
+        <section class="answer-grid" aria-live="polite">
+          <article class="answer-zone">
+            <div class="answer-meta">
+              <span id="left-state-label">Left ready</span>
+              <span id="left-timer">00.0s</span>
+            </div>
+            <div id="left-answer" class="answer">
+              Choose two models, ask once, then compare the evidence and style.
+            </div>
+          </article>
+
+          <article class="answer-zone">
+            <div class="answer-meta">
+              <span id="right-state-label">Right ready</span>
+              <span id="right-timer">00.0s</span>
+            </div>
+            <div id="right-answer" class="answer">
+              The same retrieved paper context will be sent to both selected models.
+            </div>
+          </article>
+        </section>
+
+        <section class="judge-zone" aria-live="polite">
+          <div class="answer-meta">
+            <span id="judge-state-label">Judge off</span>
+            <span id="judge-model-label">No judge selected</span>
+          </div>
+          <article id="judge-answer" class="answer judge-answer">
+            Enable judging to score the two responses against the retrieved paper context.
+          </article>
+        </section>
+      </section>
+    </main>
+    <script src="/app.js?v=stream-3"></script>
+  </body>
+</html>
